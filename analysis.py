@@ -59,3 +59,9 @@ df['RSI'] = 100 - (100 / (1 + rs))
 # Step 12: Calculate Exponential Moving Average (EMA) for 50 and 200 periods
 df['50-day EMA'] = df['Close'].ewm(span=50, adjust=False).mean()
 df['200-day EMA'] = df['Close'].ewm(span=200, adjust=False).mean()
+
+# Step 13: Portfolio Analysis (Sharpe Ratio)
+returns = df['Daily Return'].mean() * 252  # Annualized return
+portfolio_risk = df['Daily Return'].std() * np.sqrt(252)  # Annualized risk (volatility)
+sharpe_ratio = returns / portfolio_risk  # Sharpe ratio: return / risk
+print(f"\nPortfolio Sharpe Ratio: {sharpe_ratio}")
