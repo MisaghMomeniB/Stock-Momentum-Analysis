@@ -23,3 +23,7 @@ df.sort_index(inplace=True)
 
 # Step 6: Forward fill missing values in the dataset (e.g., for missing stock prices)
 df.fillna(method='ffill', inplace=True)
+
+# Data Overview
+print("Data Overview:")
+print(df.head())
