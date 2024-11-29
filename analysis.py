@@ -95,3 +95,8 @@ plt.show()
 # Step 17: Backtesting a Moving Average Crossover Strategy
 df['7-day MA'] = df['Close'].rolling(window=7).mean()
 df['30-day MA'] = df['Close'].rolling(window=30).mean()
+
+# Generate buy/sell signals based on the crossover strategy
+df['Signal'] = 0
+df['Signal'][df['7-day MA'] > df['30-day MA']] = 1  # Buy signal: 7-day MA crosses above 30-day MA
+df['Signal'][df['7-day MA'] < df['30-day MA']] = -1  # Sell signal: 7-day MA crosses below 30-day MA
