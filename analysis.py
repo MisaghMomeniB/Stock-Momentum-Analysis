@@ -115,3 +115,6 @@ plt.ylabel("Cumulative Return")
 plt.legend()
 plt.xticks(rotation=45)
 plt.show()
+
+# Step 19: Plot Technical Indicators (RSI and MACD)
+plt.figure(figsize=(14, 7))
