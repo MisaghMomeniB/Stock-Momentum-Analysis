@@ -31,3 +31,6 @@ print(df.head())
 # Step 7: Descriptive Statistics
 print("\nDescriptive Statistics:")
 print(df.describe())
+
+# Step 8: Calculate daily returns (percentage change from previous day)
+df['Daily Return'] = df['Close'].pct_change()
