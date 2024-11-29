@@ -34,3 +34,9 @@ print(df.describe())
 
 # Step 8: Calculate daily returns (percentage change from previous day)
 df['Daily Return'] = df['Close'].pct_change()
+
+# Step 9: Calculate MACD (Moving Average Convergence Divergence) and Signal Line
+short_ema = df['Close'].ewm(span=12, adjust=False).mean()
+long_ema = df['Close'].ewm(span=26, adjust=False).mean()
+df['MACD'] = short_ema - long_ema
+df['Signal Line'] = df['MACD'].ewm(span=9, adjust=False).mean()
