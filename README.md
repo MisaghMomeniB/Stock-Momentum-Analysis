@@ -1,3 +1,9 @@
+![Screenshot from 2024-11-29 17-39-27](https://github.com/user-attachments/assets/f019cf1f-199c-477b-b5f8-e604b0738b96)
+![Screenshot from 2024-11-29 17-39-20](https://github.com/user-attachments/assets/4123aba8-44b0-4899-9e26-3514e5760ca7)
+![Screenshot from 2024-11-29 17-38-50](https://github.com/user-attachments/assets/b7dbbf63-41b5-4de5-85c5-7e0dedd54528)
+![Screenshot from 2024-11-29 17-38-44](https://github.com/user-attachments/assets/9d850190-9479-49dc-8667-5b5c629c4d2d)
+![Screenshot from 2024-11-29 17-38-37](https://github.com/user-attachments/assets/174c6778-3c7a-4e2b-be00-4495edc33708)
+
 ### 1. **Importing Libraries**
 ```python
 import pandas as pd
