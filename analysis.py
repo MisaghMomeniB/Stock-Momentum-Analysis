@@ -20,3 +20,6 @@ df = df[~df.index.duplicated(keep='last')]
 
 # Step 5: Sort the DataFrame by Date (ascending order)
 df.sort_index(inplace=True)
+
+# Step 6: Forward fill missing values in the dataset (e.g., for missing stock prices)
+df.fillna(method='ffill', inplace=True)
