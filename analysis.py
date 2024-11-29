@@ -125,3 +125,8 @@ fig1.show()
 
 fig2 = px.line(df, x=df.index, y='Volume', title='Trading Volume Over Time', color='Symbol')
 fig2.show()
+
+# Step 21: Save the analyzed data to a new CSV file
+df.to_csv("analyzed_stock_data.csv")
+
+print("\nAnalysis Complete. The data has been saved as 'analyzed_stock_data.csv'.")
