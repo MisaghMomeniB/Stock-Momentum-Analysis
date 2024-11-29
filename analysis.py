@@ -13,3 +13,7 @@ df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 
 # Step 3: Remove rows with invalid or missing 'Date' values
 df = df.dropna(subset=['Date'])
+
+# Step 4: Set 'Date' as the index and ensure there are no duplicate dates
+df.set_index('Date', inplace=True)
+df = df[~df.index.duplicated(keep='last')]
