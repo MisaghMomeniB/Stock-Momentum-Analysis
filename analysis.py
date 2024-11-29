@@ -40,3 +40,9 @@ short_ema = df['Close'].ewm(span=12, adjust=False).mean()
 long_ema = df['Close'].ewm(span=26, adjust=False).mean()
 df['MACD'] = short_ema - long_ema
 df['Signal Line'] = df['MACD'].ewm(span=9, adjust=False).mean()
+
+# Step 10: Calculate Bollinger Bands (upper and lower bands for volatility)
+rolling_mean = df['Close'].rolling(window=20).mean()
+rolling_std = df['Close'].rolling(window=20).std()
+df['Upper Band'] = rolling_mean + (rolling_std * 2)
+df['Lower Band'] = rolling_mean - (rolling_std * 2)
