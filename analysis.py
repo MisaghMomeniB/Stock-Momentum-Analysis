@@ -46,3 +46,12 @@ rolling_mean = df['Close'].rolling(window=20).mean()
 rolling_std = df['Close'].rolling(window=20).std()
 df['Upper Band'] = rolling_mean + (rolling_std * 2)
 df['Lower Band'] = rolling_mean - (rolling_std * 2)
+
+# Step 11: Calculate RSI (Relative Strength Index)
+delta = df['Close'].diff(1)
+gain = delta.where(delta > 0, 0)
+loss = -delta.where(delta < 0, 0)
+avg_gain = gain.rolling(window=14).mean()
+avg_loss = loss.rolling(window=14).mean()
+rs = avg_gain / avg_loss
+df['RSI'] = 100 - (100 / (1 + rs))
