@@ -65,3 +65,10 @@ returns = df['Daily Return'].mean() * 252  # Annualized return
 portfolio_risk = df['Daily Return'].std() * np.sqrt(252)  # Annualized risk (volatility)
 sharpe_ratio = returns / portfolio_risk  # Sharpe ratio: return / risk
 print(f"\nPortfolio Sharpe Ratio: {sharpe_ratio}")
+
+# Step 14: ARIMA Forecasting (predicting future stock prices)
+model = ARIMA(df['Close'], order=(5, 1, 0))  # ARIMA model (example order, adjust based on ACF/PACF)
+model_fit = model.fit()
+forecast = model_fit.forecast(steps=10)  # Forecast the next 10 days
+print("\nARIMA Forecasting (Next 10 Days):")
+print(forecast)
