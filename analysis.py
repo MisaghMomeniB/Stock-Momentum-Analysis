@@ -72,3 +72,8 @@ model_fit = model.fit()
 forecast = model_fit.forecast(steps=10)  # Forecast the next 10 days
 print("\nARIMA Forecasting (Next 10 Days):")
 print(forecast)
+
+# Step 15: Monte Carlo Simulation for Stock Prices
+num_simulations = 1000  # Number of simulations
+num_days = 252  # 1 year of trading days
+simulated_prices = np.zeros((num_simulations, num_days))
