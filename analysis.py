@@ -118,3 +118,10 @@ plt.show()
 
 # Step 19: Plot Technical Indicators (RSI and MACD)
 plt.figure(figsize=(14, 7))
+
+# Step 20: Interactive Visualization with Plotly for Closing Price and Volume
+fig1 = px.line(df, x=df.index, y='Close', title='Stock Prices Over Time', color='Symbol')
+fig1.show()
+
+fig2 = px.line(df, x=df.index, y='Volume', title='Trading Volume Over Time', color='Symbol')
+fig2.show()
