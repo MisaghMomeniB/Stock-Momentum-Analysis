@@ -83,3 +83,11 @@ for i in range(num_simulations):
     daily_returns = np.random.normal(df['Daily Return'].mean(), df['Daily Return'].std(), num_days)
     price_series = df['Close'].iloc[-1] * (1 + daily_returns).cumprod()  # Apply daily returns to initial price
     simulated_prices[i] = price_series
+    
+# Step 16: Visualize Monte Carlo Simulation results
+plt.figure(figsize=(14, 7))
+plt.plot(simulated_prices.T, color='blue', alpha=0.1)
+plt.title("Monte Carlo Simulation of Stock Prices")
+plt.xlabel("Days")
+plt.ylabel("Stock Price ($)")
+plt.show()
