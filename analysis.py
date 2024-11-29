@@ -104,3 +104,14 @@ df['Signal'][df['7-day MA'] < df['30-day MA']] = -1  # Sell signal: 7-day MA cro
 # Calculate strategy returns
 df['Strategy Return'] = df['Daily Return'] * df['Signal'].shift(1)  # Lagging signal by 1 day for correct backtest
 df['Cumulative Strategy Return'] = (1 + df['Strategy Return']).cumprod() - 1  # Cumulative return of the strategy
+
+# Step 18: Visualize Cumulative Strategy Return vs. Market Return
+plt.figure(figsize=(14, 7))
+sns.lineplot(x=df.index, y=df['Cumulative Strategy Return'], label='Strategy Return')
+sns.lineplot(x=df.index, y=(1 + df['Daily Return']).cumprod() - 1, label='Market Return')
+plt.title("Cumulative Returns: Strategy vs. Market")
+plt.xlabel("Date")
+plt.ylabel("Cumulative Return")
+plt.legend()
+plt.xticks(rotation=45)
+plt.show()
