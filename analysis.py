@@ -27,3 +27,7 @@ df.fillna(method='ffill', inplace=True)
 # Data Overview
 print("Data Overview:")
 print(df.head())
+
+# Step 7: Descriptive Statistics
+print("\nDescriptive Statistics:")
+print(df.describe())
