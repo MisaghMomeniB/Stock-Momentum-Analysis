@@ -55,3 +55,7 @@ avg_gain = gain.rolling(window=14).mean()
 avg_loss = loss.rolling(window=14).mean()
 rs = avg_gain / avg_loss
 df['RSI'] = 100 - (100 / (1 + rs))
+
+# Step 12: Calculate Exponential Moving Average (EMA) for 50 and 200 periods
+df['50-day EMA'] = df['Close'].ewm(span=50, adjust=False).mean()
+df['200-day EMA'] = df['Close'].ewm(span=200, adjust=False).mean()
