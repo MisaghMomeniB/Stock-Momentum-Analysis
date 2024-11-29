@@ -17,3 +17,6 @@ df = df.dropna(subset=['Date'])
 # Step 4: Set 'Date' as the index and ensure there are no duplicate dates
 df.set_index('Date', inplace=True)
 df = df[~df.index.duplicated(keep='last')]
+
+# Step 5: Sort the DataFrame by Date (ascending order)
+df.sort_index(inplace=True)
