@@ -100,3 +100,7 @@ df['30-day MA'] = df['Close'].rolling(window=30).mean()
 df['Signal'] = 0
 df['Signal'][df['7-day MA'] > df['30-day MA']] = 1  # Buy signal: 7-day MA crosses above 30-day MA
 df['Signal'][df['7-day MA'] < df['30-day MA']] = -1  # Sell signal: 7-day MA crosses below 30-day MA
+
+# Calculate strategy returns
+df['Strategy Return'] = df['Daily Return'] * df['Signal'].shift(1)  # Lagging signal by 1 day for correct backtest
+df['Cumulative Strategy Return'] = (1 + df['Strategy Return']).cumprod() - 1  # Cumulative return of the strategy
