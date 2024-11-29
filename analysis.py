@@ -91,3 +91,7 @@ plt.title("Monte Carlo Simulation of Stock Prices")
 plt.xlabel("Days")
 plt.ylabel("Stock Price ($)")
 plt.show()
+
+# Step 17: Backtesting a Moving Average Crossover Strategy
+df['7-day MA'] = df['Close'].rolling(window=7).mean()
+df['30-day MA'] = df['Close'].rolling(window=30).mean()
