@@ -77,3 +77,9 @@ print(forecast)
 num_simulations = 1000  # Number of simulations
 num_days = 252  # 1 year of trading days
 simulated_prices = np.zeros((num_simulations, num_days))
+
+# Simulate price movements based on daily returns
+for i in range(num_simulations):
+    daily_returns = np.random.normal(df['Daily Return'].mean(), df['Daily Return'].std(), num_days)
+    price_series = df['Close'].iloc[-1] * (1 + daily_returns).cumprod()  # Apply daily returns to initial price
+    simulated_prices[i] = price_series
